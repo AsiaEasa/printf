@@ -8,9 +8,9 @@
 
 int printf_char(va_list num)
 {
- char y;
+	char y;
 
- y = va_arg(num, int);
- _putchar(y);
- return (1);
+	y = va_arg(num, int);
+	_putchar(y);
+	return (1);
 }
