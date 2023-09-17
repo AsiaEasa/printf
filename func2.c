@@ -360,7 +360,7 @@ int print_rot13string(va_list types, char buffer[],
 
 		{
 
-			x = str[i];
+			x = ptr[i];
 
 			write(1, &x, 1);
 

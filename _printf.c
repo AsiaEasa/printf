@@ -76,7 +76,7 @@ int _printf(const char *format, ...)
 
 			++i;
 
-			printed = handle_print(format, &i, list, buffer,
+			printed = handle_print(format, &i, list, buff,
 
 					flags, width, precision, size);
 

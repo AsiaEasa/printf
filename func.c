@@ -338,7 +338,7 @@ int print_binary(va_list types, char buffer[],
 
 	a[0] = n / l;
 
-	for (x = 1; x < 32; i++)
+	for (x = 1; x < 32; x++)
 
 	{
 
