@@ -5,12 +5,9 @@
  * @val: arguments.
  * Return: 1.
  */
-
-int printf_char(va_list num)
+int printc(char *format, va_list pa)
 {
-	char y;
-
-	y = va_arg(num, int);
-	_putchar(y);
+	(void)format;
+	_putchar(va_arg(pa, int));
 	return (1);
 }

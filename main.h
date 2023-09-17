@@ -1,30 +1,27 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdarg.h>
+#include <stddef.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <string.h>
-
 /**
- * find_function - function that finds formats for _printf
- * calls the corresponding function.
- * @format: format (char, string, int, decimal)
- * Return: NULL or function associated ;
+ * struct structprint - structure containing
+ * @q: the location and method to translate data to characters.
+ * @u: print function for specific type.
+ *
+ * Return: int
  */
-
-int _putchar(char l);
-int _printf(const char *format, ...);
-int printf_char(va_list c);
-int printf_string(va_list s);
-int printf_percent(void);
-
-typedef struct code_format
+typedef struct structprint
 {
-	char *sc;
-	int (*f)(va_list);
-} code_f;
+	char *q;
+	int (*u)(char *format, va_list);
+} structype;
 
+int _putchar(char ch);
+int printc(char *format, va_list);
+int printf_string(va_list s);
+int (*driver(char *format))(char *format, va_list);
+int _printf(char *format, ...);
+int print_porcentage(void);
 #endif
