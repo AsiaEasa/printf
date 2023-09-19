@@ -1,5 +1,4 @@
 #include "main.h" 
-
 /****************** POINTER ******************/ 
 /** 
  * print_pointer - Prints the value of a pointer variable 
@@ -19,18 +18,13 @@ int print_pointer(va_list types, char buffer[],
 	unsigned long num_addrs; 
 	char map_to[] = "0123456789abcdef"; 
 	void *addrs = va_arg(types, void *); 
-
 	UNUSED(width); 
 	UNUSED(size); 
-
 	if (addrs == NULL) 
 		return (write(1, "(nil)", 5)); 
-
 	buffer[BUFF_SIZE - 1] = '\0'; 
 	UNUSED(precision); 
-
 	num_addrs = (unsigned long)addrs; 
-
 	while (num_addrs > 0) 
 	{ 
 		buffer[i--] = map_to[num_addrs % 16]; 
@@ -109,27 +103,22 @@ int print_reverse(va_list types, char buffer[],
 { 
 	char *s; 
 	int i, counter = 0; 
-
 	UNUSED(buffer); 
 	UNUSED(flags); 
 	UNUSED(width); 
 	UNUSED(size); 
-
 	s = va_arg(types, char *); 
-
 	if (s == NULL) 
 	{ 
 		UNUSED(precision); 
-
-		s = ")Null("; 
-	} 
+		s = ")Null(";
+	}
 	for (i = 0; s[i]; i++) 
 		; 
 
 	for (i = i - 1; i >= 0; i--) 
 	{ 
 		char z = s[i]; 
-
 		write(1, &z, 1); 
 		counter++; 
 	} 
@@ -155,14 +144,12 @@ int print_rot13string(va_list types, char buffer[],
 	int counter = 0; 
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; 
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"; 
-
 	s = va_arg(types, char *); 
 	UNUSED(buffer); 
 	UNUSED(flags); 
 	UNUSED(width); 
 	UNUSED(precision); 
 	UNUSED(size); 
-
 	if (s == NULL) 
 		s = "(AHYY)"; 
 	for (i = 0; s[i]; i++) 
