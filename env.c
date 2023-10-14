@@ -53,7 +53,7 @@ int envi(char **env_word, size_t no_of_word)
  * Return: Nothing.
  */
 	void print_env(const char *str)
-	{ 
+	{
 		while (*str)
 		{
 			write(1, str, 1);
@@ -64,8 +64,8 @@ int envi(char **env_word, size_t no_of_word)
 
 /**
  * free_all - frees memory allocated
- * @all: all to be freed.
- * @size_t: Number of strings (pointers) in the all.
+ * @array: array to be freed.
+ * @len: Number of strings (pointers) in the all.
  * Return: Nothing.
  */
 
