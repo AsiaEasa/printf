@@ -8,10 +8,12 @@
 #define MAX_WORD_COUNT 1024
 #define BUFFER_SIZE 1024
 
-int main() { 
+int main(int argc, char *argv[], char **env) {	(void) argc;
+			(void) argv;
 	char *in = NULL;
-	char str[BUFFER_SIZE], *words;
+	char str[BUFFER_SIZE], *words, *arg[BUFFER_SIZE];
 	size_t in_size = 0, no_of_words;
+	int i;
 	ssize_t get;
 	char *prompt = "$ ";
 	while (1) {
@@ -26,10 +28,12 @@ int main() {
 
 			in[get - 1] = '\0';
 		}
-		words = strtok(in, " ");
-		while (words != NULL)
+		strcpy(str,in);
+		words = strtok(str, " ");
+		while (words != NULL){
+			arg[i] = words;
 			words =strtok(NULL," ");
-		strcpy(str, in);
+			i++;}
 		if (strncmp(str, "exit",4) == 0)
 			break;
 
@@ -41,7 +45,7 @@ int main() {
 		}
 
 		if (pid == 0) {
-			if (execve(in, in, NULL) == -1) {
+			if (execve(arg[0], arg, env) == -1) {
 				printf("Command not found: %s\n", in);
 				exit(EXIT_FAILURE);
 			}
