@@ -8,12 +8,12 @@
 #define MAX_WORD_COUNT 1024
 #define BUFFER_SIZE 1024
 
-int main(int argc, char *argv[], char **env) {	(void) argc;
+int main(int argc, char *argv[]) {	(void) argc;
 			(void) argv;
 	char *in = NULL;
 	char str[BUFFER_SIZE], *words, *arg[BUFFER_SIZE];
 	size_t in_size = 0, no_of_words;
-	int i;
+	int i=0;
 	ssize_t get;
 	char *prompt = "$ ";
 	while (1) {
@@ -29,12 +29,13 @@ int main(int argc, char *argv[], char **env) {	(void) argc;
 			in[get - 1] = '\0';
 		}
 		strcpy(str,in);
-		words = strtok(str, " ");
-		while (words != NULL){
-			arg[i] = words;
-			words =strtok(NULL," ");
+	words = strtok(str, " ");
+	while (words != NULL){
+	words =strtok(NULL," ");
 			i++;}
-		if (strncmp(str, "exit",4) == 0)
+	arg[] = {str,str,NULL};
+
+if (strncmp(str, "exit",4) == 0)
 			break;
 
 		pid_t pid = fork();
@@ -45,7 +46,7 @@ int main(int argc, char *argv[], char **env) {	(void) argc;
 		}
 
 		if (pid == 0) {
-			if (execve(arg[0], arg, env) == -1) {
+if (execve(arg[0], arg, NULL) == -1) {
 				printf("Command not found: %s\n", in);
 				exit(EXIT_FAILURE);
 			}
@@ -53,8 +54,6 @@ int main(int argc, char *argv[], char **env) {	(void) argc;
 			wait(NULL);
 		}
 	}
-	free(in);
-	return 0;
 	free(in);
 	return 0;
 }
