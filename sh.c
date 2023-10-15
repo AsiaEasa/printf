@@ -9,6 +9,7 @@
 #define BUFFER_SIZE 1024
 int handle_exit(char *exit_args)
 {
+<<<<<<< HEAD
 
 	exit(0); }
 
@@ -36,6 +37,38 @@ int handle_exit(char *exit_args)
 strcpy(str, in);
 	if (strncmp(str, "exit",4) == 0)
 			break;
+=======
+		
+			exit(0); }
+
+int main() { 
+	char *in = NULL;
+	char *words;
+	size_t in_size = 0, no_of_words;
+	ssize_t get;
+	char *prompt = "$ ";
+	while (1) {
+		write(STDOUT_FILENO, prompt, 2);
+		get = getline(&in, &in_size, stdin);
+		if (get == -1) {
+			perror("getline");
+			exit(EXIT_FAILURE);
+		}
+
+		if (in[get - 1] == '\n') {
+
+			in[get - 1] = '\0';
+		}
+	words = strtok(in, " ");
+while (words != NULL)
+
+		｛
+words =strtok(NULL," "); }
+ 
+	if (strncmp(words, "exit",4) == 0)
+	handle_exit(words);
+			continue;
+>>>>>>> 5d0a5bd866e8ce7ad8dbd125d77179379f2114eb
 
 		pid_t pid = fork();
 
@@ -54,6 +87,11 @@ strcpy(str, in);
 		}
 	}
 
+<<<<<<< HEAD
 free(in);
 return 0;
+=======
+	free(in);
+	return 0;
+>>>>>>> 5d0a5bd866e8ce7ad8dbd125d77179379f2114eb
 }
