@@ -31,10 +31,10 @@ int main(int argc, char *argv[]) {	(void) argc;
 		strcpy(str,in);
 	words = strtok(str, " ");
 	while (words != NULL){
+		arg[i]=words;
 	words =strtok(NULL," ");
 			i++;}
-	arg[] = {str,str,NULL};
-
+arg[i] = NULL ;
 if (strncmp(str, "exit",4) == 0)
 			break;
 
