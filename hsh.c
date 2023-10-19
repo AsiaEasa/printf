@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ff332588cd8e33c2bb2a5fa13f84bebee113c030
 #include <string.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -31,6 +34,10 @@ int main(int argc, char *argv[]) { (void) argc;
    in[get - 1] = '\0';
   }
   strcpy(str,in);
+<<<<<<< HEAD
+=======
+free(in);
+>>>>>>> ff332588cd8e33c2bb2a5fa13f84bebee113c030
   words = strtok(str, " ");
  i = 0;
   while (words != NULL){
@@ -54,6 +61,7 @@ printf("Command not found: %s\n", in);
 
 waitpid(pid, &status, 0);  }
  return 0;
+<<<<<<< HEAD
 =======
 #include "hsh.h"
 
@@ -127,4 +135,6 @@ int main(int argc, char *argv[])
 	free(in);
 	return (0);
 >>>>>>> 4e77ba0ff2af68422e09bb44440fc9f6a02d2970
+=======
+>>>>>>> ff332588cd8e33c2bb2a5fa13f84bebee113c030
 }

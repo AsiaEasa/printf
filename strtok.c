@@ -1,8 +1,8 @@
-#include "hsh.h" 
-/** 
- * str_tok - a function that spilt the string 
+#include "hsh.h"
+/**
+ * str_tok - a function that spilt the string
  * @str: command input
- * @separator: space separates words
+ * @separate: space separates words
  * Return: string
  */
 
